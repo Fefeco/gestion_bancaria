@@ -51,7 +51,13 @@
                 fwrite( $file, $linea );
             }
             fclose( $file );
-            $_SESSION['success']['ingreso'] = 'El monto se ah ingresado con éxito';
+            if( $_GET['saldo'] === 'resta' ){
+                $_SESSION['success']['saldo'] = 'El saldo se ha actualizado con éxito';
+            } elseif( $_GET['saldo'] === 'suma' ){
+                $_SESSION['success']['saldo'] = 'El monto se ha ingresado con éxito';
+                
+            }
+            
             header( 'Location: ../gestion.php' );
             die();
         } else {

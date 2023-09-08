@@ -22,5 +22,5 @@
 
     $_SESSION['usuario']['saldo'] += sprintf( '%.2f', $monto );
 
-    header( 'Location: actualizar_saldo.php' );
+    header( 'Location: actualizar_saldo.php?saldo=suma' );
     exit();

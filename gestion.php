@@ -33,10 +33,14 @@ Esta página muestra al usuario
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Gestion</title>
     <style>
         .btn2 {
             padding: 1rem 0.75rem;
+        }
+        .fs-9{
+            font-size: 4.25rem;
         }
     </style>
 </head>
@@ -44,20 +48,39 @@ Esta página muestra al usuario
     <section class="container-md mt-5 p-5 pt-1 shadow rounded" style="max-width: 600px;">
         <p class="text-end"><small>Último acceso: <?= $ultimo_ingreso ?>hs</small></p>
 
-        <?php if( isset( $_SESSION['success']['ingreso'] ) ): ?>
-            <p><?= $_SESSION['success']['ingreso'] ?></p>
-            <?php unset ( $_SESSION['success']['ingreso'] ); ?>
+        <?php if( isset( $_SESSION['success']['saldo'] ) ): ?>
+            <p class="py-1 px-3 text-success bg-success-subtle border-success border-start border-3 rounded-1"><?= $_SESSION['success']['saldo'] ?></p>
+            <?php unset ( $_SESSION['success']['saldo'] ); ?>
         <?php endif; ?>
+        <div class="row mb-4">
+            <div class="col-2 me-1">
+                <i class="bi bi-person-square fs-9"></i>
+            </div>
+            <div class="col ps-0">
+                <div class="row">
+                    <h1 class="display-6 mt-3 mb-1"><?= $nombre ?></h1>
+                </div>
+                <div class="row">
+                    <p class="fw-light mb-0"><?= $apellidos ?></p>
+                </div>
+            </div>
+            <div class="col">
+                
+            </div>
 
-        <h1 class="display-6" ><?= $nombre ?></h1>
-        <p class="fw-light "><?= $apellidos ?></p>
+        </div>
 
         <h2>Saldo</h2>
-        <p><?= $saldo ?> €</p>
+        <p class="lead mb-5"><?= $saldo ?> €</p>
 
-        <a href="ingreso.php"><button class="btn btn-primary btn2" >Ingresar dinero</button></a>
-        <a href="reintegro.php"><button class="btn btn-outline-primary">Retirar dinero</button></a>
-        <a href="includes/logout.php"><button class="btn btn-secondary btn-sm">Cerrar sesión</button></a>
+        <div>
+            <a href="ingreso.php"><button class="btn btn-primary btn2" >Ingresar dinero</button></a>
+            <a href="reintegro.php"><button class="btn btn-outline-primary btn2">Retirar dinero</button></a>
+        </div>
+        
+        <div class="d-flex justify-content-end">
+            <a href="includes/logout.php"><button class="btn btn-secondary btn-sm">Cerrar sesión</button></a>
+        </div>
 
     </section>
 

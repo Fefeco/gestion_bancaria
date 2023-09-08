@@ -22,21 +22,24 @@ El usuario debe ser redirigido a la página de gestión donde debe mostrarse act
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 </head>
 <body>
-    <section>
+    <section class="container-md mt-5 p-5 pt-1 shadow rounded" style="max-width: 600px; height: 422px;">
         <a href="gestion.php">volver</a>
-        <h1>Ingreso</h1>
-        <form action="includes/control_ingreso.php" method="post">
-            <label for="monto">Monto a ingresar</label>
-            <input type="text" name="monto" id="monto">
+        <h1 class="display-3 my-4">Ingreso</h1>
+        <form class="mt-4" action="includes/control_ingreso.php" method="post">
+            <label class="form-label lead d-block" for="monto">Monto a ingresar</label>
+            <div class="d-flex gap-1">
+                <input type="text" name="monto" id="monto">
+                <input class="btn btn-primary btn-sm" type="submit" value="Ingresar" style="width: 6rem;">
+            </div>
 
             <?php if( isset( $_SESSION['errors']['monto'] ) ): ?>
-                <p><?= $_SESSION['errors']['monto'] ?></p>
+                <p class='form-text text-danger'><?= $_SESSION['errors']['monto'] ?></p>
                 <?php unset( $_SESSION['errors']['monto'] ); ?>
             <?php endif; ?>
-
-            <input type="submit" value="Ingresar">
         </form>
     </section>
 </body>
