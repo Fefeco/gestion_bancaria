@@ -15,6 +15,12 @@
 </head>
 <body>
     <section class="container mt-5 border rounded px-4 pt-5 pb-4 shadow-sm" style="max-width: 350px;">
+
+        <?php if( isset( $_SESSION['errors']['no_cuenta'] ) ): ?>
+            <p class="py-1 px-3 text-danger bg-danger-subtle border-3 border-start border-danger rounded-1"><?= $_SESSION['errors']['no_cuenta']; ?></p>
+            <?php unset( $_SESSION['errors']['no_cuenta'] ); ?>
+        <?php endif; ?>
+
         <h1>Iniciar sesión</h1>
         <form action="includes/login.php" method="post">
             <div class="my-3">
@@ -43,6 +49,7 @@
 
           </form>
           <?php if( isset( $_SESSION['user'] ) ) unset( $_SESSION['user'] ) ?>
+          <?php if( isset( $_SESSION['errors'] ) ) unset( $_SESSION['errors'] ) ?>
     </section>
 </body>
 </html>
