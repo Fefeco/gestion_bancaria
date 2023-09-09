@@ -25,8 +25,8 @@
         <form action="includes/login.php" method="post">
             <div class="my-3">
                 <label for="cuenta" class="form-label">N° de cuenta</label>
-                <input type="text" name="cuenta" class="form-control" id="cuenta" value="<?php if(isset($_SESSION['cuenta'])) echo $_SESSION['cuenta']; ?>">
-
+                <input type="text" name="cuenta" class="form-control" id="cuenta" value="<?php if( isset( $_SESSION['cuenta'] ) ) echo $_SESSION['cuenta']; ?>">
+                
                 <?php if( isset( $_SESSION['errors']['cuenta'] ) ): ?>
                     <p class="form-text text-danger"><?= $_SESSION['errors']['cuenta']; ?></p>
                     <?php unset( $_SESSION['errors']['cuenta'] ) ?>
@@ -47,9 +47,7 @@
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </div>
 
-          </form>
-          <?php if( isset( $_SESSION['user'] ) ) unset( $_SESSION['user'] ) ?>
-          <?php if( isset( $_SESSION['errors'] ) ) unset( $_SESSION['errors'] ) ?>
+        </form>
     </section>
 </body>
 </html>
